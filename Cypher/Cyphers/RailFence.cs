@@ -7,8 +7,9 @@ namespace Cypher.Cyphers
     class RailFence
     {
         CypherTools Tools;
-        public RailFence(string Letters)
+        public RailFence(string Letters)//Settings for cypher
         {
+            //Spaces must be set to false beacaus otherwise the cypher dose not work
             Tools = new CypherTools(Letters, false);
         }
         public string RunE(string Text, int key)//runs Encode

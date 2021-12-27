@@ -6,7 +6,7 @@ namespace Cypher.Cyphers
     class Atabash
     {
         CypherTools Tools;
-        public Atabash(string Letters, bool Spaces)
+        public Atabash(string Letters, bool Spaces)//Settings for cypher
         {
             Tools = new CypherTools(Letters, Spaces);
         }

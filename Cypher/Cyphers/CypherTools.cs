@@ -9,7 +9,7 @@ namespace Cypher.Cyphers
         public char[] Alphabet { get; set; }
         string Letters;
         bool Spaces;
-        public CypherTools(string Letters, bool Spaces)
+        public CypherTools(string Letters, bool Spaces)//takes settings
         {
             Alphabet = Letters.ToCharArray();
             this.Letters = Letters;
@@ -24,7 +24,7 @@ namespace Cypher.Cyphers
             Text = rgx.Replace(Text, "");//Remove unwanted letters
             return Text;
         }
-        public bool Coprime(int value1, int value2)//Works out if a number is coprime. eg/ has no common factors
+        public bool Coprime(int value1, int value2)//Works out if a number is coprime. eg/ has no common factors 
         {
             while (value1 != 0 && value2 != 0)
             {
