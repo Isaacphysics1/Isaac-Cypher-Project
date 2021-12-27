@@ -12,7 +12,7 @@ namespace Cypher.Fitness
         public FitScore(string FilePath,int keyLen)
         {
             this.keyLen = keyLen;
-            //@"D:\Isaac Programing\Cypher\Cypher\Cypher\Fitness\english_quintgrams.txt"
+            //@"D:\Isaac Programing\Cypher\Cypher\Fitness\english_quintgrams.txt"
             string[] lines = System.IO.File.ReadAllLines(FilePath);
             long Total = 0;
             foreach (string line in lines)

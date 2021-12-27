@@ -1,53 +1,47 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using Cypher.Fitness;
-using Newtonsoft.Json;
 
 namespace Cypher.Cyphers
 {
     class ROT
     {
-        char[] Alphabet;
-        string Letters;
-        bool Spaces;
-        string space = "";
+        CypherTools Tools;
         public ROT(string Letters,bool Spaces)
         {
-            this.Letters = Letters;
-            Alphabet = Letters.ToCharArray();
-            this.Spaces = Spaces;
-            if (Spaces)//If we want to keep spaces
-            {space = " ";}
+            Tools = new CypherTools(Letters, Spaces);
         }
-        public string run(int key, string Text)
+        public string RunE(string Text,int key)//runs encode
         {
-            Text = Text.ToLower();
-            Regex rgx = new Regex("[^"+Letters+space+"]");
-            Text = rgx.Replace(Text, "");
-            byte[] Positions = new byte[Text.Length];
+            Text = Tools.PrepText(Text);
             string CodedText = "";
             for (int position = 0; position < Text.Length; position++)
             {
                 if (Char.IsWhiteSpace(Text[position]))  {CodedText += " ";}
                 else
                 {
-                    Positions[position] = (byte)Array.IndexOf(Alphabet, Text[position]);
-                    Positions[position] = (byte)((Positions[position] + key) % Letters.Length);
-                    CodedText += Alphabet[Positions[position]];
+                    byte Position = (byte)Array.IndexOf(Tools.Alphabet, Text[position]);
+                    Position = (byte)((Position + key) % Tools.Alphabet.Length);
+                    CodedText += Tools.Alphabet[Position];
                 }                
             }
             return CodedText;
         }
-        public void Decypher(string Text,ref FitScore fit,out int key,out double MaxFit)
+        public string RunD(string Text, int key)
         {
-            int cycles = Alphabet.Length;//Number Of trys needed to try every shift
+            Text = Tools.PrepText(Text);
+            key = 36 - key;
+            return RunE(Text, key);
+        }
+        public void Decypher(string Text,ref FitScore fit,out int key,out double MaxFit)//Works out the key of a piece of cypher text
+        {
+            int cycles = Tools.Alphabet.Length;//Number Of trys needed to try every shift
             double maxFit = double.MinValue;//set the value to the min so when we gat a bigger number it opverides this one
             int maxkey = 0;//the key that gave us the max value
             for (int i = 0; i < cycles; i++)
             {
-                string outText = run(i + 1, Text);
-                double fitness = fit.TestFit(outText);
-                if (maxFit < fitness)
+                string outText = RunD(Text, (i + 1));//Runs decode
+                double fitness = fit.TestFit(outText);//tests fitness of decoded text
+                if (maxFit < fitness)//if output better than previous best set it to the best
                 {
                     maxFit = fitness;
                     maxkey = i + 1;
