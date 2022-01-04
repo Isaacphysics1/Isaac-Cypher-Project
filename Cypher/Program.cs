@@ -2,7 +2,7 @@
 
 namespace Cypher
 {
-    class Program
+    public class Program
     {
         static void Main()
         {
@@ -30,9 +30,36 @@ namespace Cypher
             //string CypherText = rail.RunE("Hello World", 7);
             //rail.Decypher(CypherText, ref fit, out int key, out double Fitness);
             //Console.WriteLine(key);
-            
+
+            //Baconian
+            //Cyphers.Baconian bac = new Cyphers.Baconian("abcdefghiklmnopqrstuwxyz",false,"ij","uv");
+            //string CypherText = bac.RunE("Hello World");
+            //CypherText = bac.RunD(CypherText);
+            //Console.WriteLine(CypherText);
+
+            //Polybius
+            //Cyphers.Polybius pol = new Cyphers.Polybius("abcdefghiklmnopqrstuvwxyz", false, 5, "abcde", "ij");
+            //string CypherText = pol.RunE("helloworld", "bvcrfgpxlnmyqduhiwekzasto");
+            //CypherText = pol.RunD(CypherText, "bvcrfgpxlnmyqduhiwekzasto");
+
+                     
 
 
         }
     }
+    public class CypherCall
+    {
+        string Name;
+        Func<string, object[]> Encode;
+        Func<string, object[]> Decode;
+        Func<object[], object[]> Decypher;
+        public CypherCall(string Name, Func<string, object[]> Encode, Func<string, object[]> Decode, Func<object[], object[]> Decypher)
+        {
+            this.Name = Name;
+            this.Encode = Encode;
+            this.Decode = Decode;
+            this.Decypher = Decypher;
+        }
+    }
+    
 }

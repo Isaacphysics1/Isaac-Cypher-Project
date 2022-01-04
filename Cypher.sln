@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cypher", "Cypher\Cypher.csproj", "{5D2301E5-26D8-422E-B5EF-8D8BD18438AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cypher", "Cypher\Cypher.csproj", "{5D2301E5-26D8-422E-B5EF-8D8BD18438AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{3B108585-D749-4125-98EE-E29921540FCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyphers", "Cyphers\Cyphers.csproj", "{2A30BC76-EC24-4185-89EC-AF9741BBD9B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{5D2301E5-26D8-422E-B5EF-8D8BD18438AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D2301E5-26D8-422E-B5EF-8D8BD18438AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D2301E5-26D8-422E-B5EF-8D8BD18438AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B108585-D749-4125-98EE-E29921540FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B108585-D749-4125-98EE-E29921540FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B108585-D749-4125-98EE-E29921540FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B108585-D749-4125-98EE-E29921540FCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A30BC76-EC24-4185-89EC-AF9741BBD9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A30BC76-EC24-4185-89EC-AF9741BBD9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A30BC76-EC24-4185-89EC-AF9741BBD9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A30BC76-EC24-4185-89EC-AF9741BBD9B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
